@@ -8,6 +8,7 @@ import createNewSlot from "./controllers/slot/slot.create.js";
 import viewAllSlot from "./controllers/slot/slot.view.js";
 import deleteSlotById from "./controllers/slot/slot.delete.js";
 import bookASlotForPublic from "./controllers/slot/slot.public.booking.js";
+import viewAllBookedSlot from "./controllers/slot/slot.bookedList.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +25,7 @@ app.use("/admin", privateRouter);
 
 app.post("/register", registerUser);
 app.post("/slots/:id/book", bookASlotForPublic);
+app.get("/slots/booked", viewAllBookedSlot);
 
 app.post("/admin/slots", createNewSlot);
 app.delete("/admin/slots/:id", deleteSlotById);
